@@ -69,21 +69,37 @@ function Login() {
       e.preventDefault()
 
       
+      
+   
+      let user=true;
+
       if(logincredentials.userName!==username){
         // console.log('Same name!')
         alert('Invalid username!')
-      }
-   
-      if(logincredentials.password!==password){
-        alert("Invalid Password!")
-      }
-      
-      else {
-        alert('Logged successfully!')
-        setPassword('')
-        setUsername('' )
+        user=false;;
 
       }
+
+      if(user){
+        console.log('user')
+        if(logincredentials.password!==password){
+          alert("Invalid Password!")
+        }
+
+        else {
+          alert('Logged successfully!!')
+          setPassword('')
+          setUsername('' )
+          console.log('sucess')
+        setclas('password_viewl')
+
+        }
+
+      }
+
+      
+      
+    
 
    }
 
