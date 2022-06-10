@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { useSelector } from 'react-redux'
 import {  selectUser } from './features/LoginSlice';
+import Password from './Password';
 
 
 function Login() {
@@ -9,6 +10,8 @@ function Login() {
 
   let [password, setPassword]=useState('')
   let [username, setUsername]=useState('')
+  let [pasto, setPasswordType]=useState('password')
+  let [clas, setclas]=useState('password_viewl')
   let logincredentials=useSelector(selectUser)
 
 
@@ -84,32 +87,39 @@ function Login() {
 
    }
 
+   let onPasswordTogel=(e)=>{
+    e.preventDefault()
+      
+      if (pasto==='password'){
+        setPasswordType('type')
+        setclas('password_notviewl')
+      }
+      else {
+        setPasswordType('password')
+        setclas('password_viewl')
+
+      }
+      
+
+   }
+
 
   return (
     <div className="App">
       <div className='Login'>
         <form className='form'>
         <input   className='username' value={username}  type='text' placeholder='Username' required  onChange={e=>setUsername(e.target.value)}/>  <br/>
-        <input  className='password' value={password} type='Password' placeholder='password' onChange={e=>setPassword(e.target.value)} required/> 
+        <input  className='password' value={password} type={pasto} placeholder='password' onChange={e=>setPassword(e.target.value)} required/><button onClick={onPasswordTogel} className= {clas}>view</button>
          <br/>
          
-           <div    >
-              <b className='head'>Password must have following</b>
-           <ul>
+         <Password minletter={minletter} testUpper={testUpper} testAlpa={testAlpa} testSpecial={testSpecial} testnum={testnum}/>
           
-             <li className={minletter?  'valid' :'notvalid'}  >Must have 8 or more letters</li>
-             <li className={testUpper? 'valid' : 'notvalid'} >One letter have upper case</li>
-             <li className={testAlpa? 'valid': 'notvalid'}>One letter has to be alphabetical</li>
-             <li className={testSpecial? 'valid':'notvalid' }>One letter has to be a Special character</li>
-             <li className={testnum? 'valid':'notvalid'}>One letter has to be Numeric</li>
-           </ul>
-         </div>
           
           <div className='checkbox'>
             <input  type='checkbox'  /> <b>Keep me logged in</b> 
             </div>
               <br/>  {
-                valid_password?  <button type='submit'  onClick={handleclick}>Login</button>:<small>Login button will be enabled when password is valid</small>
+                valid_password?  <button className='submit_btn' type='submit'  onClick={handleclick}>Login</button>:<small>Login button will be enabled when password is valid</small>
                
               }
 

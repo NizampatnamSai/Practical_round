@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useDispatch } from 'react-redux'
 import { login } from './features/LoginSlice';
+import Password from './Password';
 
 
 function Register() {
@@ -11,6 +12,8 @@ function Register() {
   let [password, setPassword]=useState('')
   let [conformpassword, setOnformPassword]=useState('')
   let [username, setUsername]=useState('')
+  let [pasto, setPasswordType]=useState('password')
+  let [clas, setclas]=useState('password_view')
   const dispatch=useDispatch();
 
 
@@ -69,7 +72,7 @@ function Register() {
 
       
     if(password!==conformpassword){
-      alert("COnform password doesn't match")
+      alert("Conform password doesn't match")
     }
       else {
         setPassword('')
@@ -96,33 +99,45 @@ function Register() {
 
    }
 
+  //  let pastogle=true;
+   let togle;
+
+   let onPasswordTogel=(e)=>{
+    e.preventDefault()
+      
+      if (pasto==='password'){
+        setPasswordType('type')
+        setclas('password_notview')
+        togle=true;
+      }
+      else {
+        setPasswordType('password')
+        setclas('password_view')
+
+        togle=false;
+      }
+      // pastogle=togle;
+      console.log(togle)
+
+   }
+
 
   return (
     <div className="App">
       <div className='Login'>
         <form className='form'>
         <input   className='username' value={username}  type='text' placeholder='Username' required  onChange={e=>setUsername(e.target.value)}/>  <br/>
-        <input  className='password' value={password} type='Password' placeholder='password' onChange={e=>setPassword(e.target.value)} required/> 
+        <input  className='password' value={password} type={pasto} placeholder='password' onChange={e=>setPassword(e.target.value)} required/><button onClick={onPasswordTogel} className= {clas}>view</button>
         <input  className='conform password' value={conformpassword} type='Password' placeholder='Confrom password' onChange={e=>setOnformPassword(e.target.value)} required/> 
          <br/>
          
-           <div    >
-              <b className='head'>Password must have following</b>
-           <ul>
-          
-             <li className={minletter?  'valid' :'notvalid'}  >Must have 8 or more letters</li>
-             <li className={testUpper? 'valid' : 'notvalid'} >One letter have upper case</li>
-             <li className={testAlpa? 'valid': 'notvalid'}>One letter has to be alphabetical</li>
-             <li className={testSpecial? 'valid':'notvalid' }>One letter has to be a Special character</li>
-             <li className={testnum? 'valid':'notvalid'}>One letter has to be Numeric</li>
-           </ul>
-         </div>
+           
+         <Password minletter={minletter} testUpper={testUpper} testAlpa={testAlpa} testSpecial={testSpecial} testnum={testnum}/>
          
               <br/>  {
-                valid_password?  <button type='submit'  onClick={handleclick}>Register</button>:<small>Register button will be enabled when password is valid</small>
+                valid_password?  <button className='submit_btn' type='submit'  onClick={handleclick}>Register</button>:<small>Register button will be enabled when password is valid</small>
                
               }
-
 
 
        

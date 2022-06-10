@@ -63,11 +63,11 @@ input {
   margin-top: 10px;
   border-radius: 15px;
   height: 25px;
-  margin-left: 10%;
+  margin-left: 6%;
   width: 80%;
 }
 
-button {
+.submit_btn {
   background-color: rgb(245, 208, 208);
   border-radius: 5px;
   margin-left: 40%;
@@ -122,4 +122,38 @@ small {
 
   .checkbox b {
     margin-left: -55px;
+  }
+
+  .password_view {
+    width: fit-content;
+    border: none;
+    background-color: white;
+    margin-left: -12%;
+    text-decoration: none;
+  }
+  .password_viewl {
+    margin-left: -15%;
+    width: fit-content;
+    border: none;
+    background-color: white;
+
+  }
+  .password_notviewl{
+    width: fit-content;
+    border: none;
+    background-color: white;
+    margin-left: -15%;
+    text-decoration: line-through;
+  }
+
+  .password_notview {
+    width: fit-content;
+    border: none;
+    background-color: white;
+    margin-left: -12%;
+    text-decoration: line-through;
+  }
+
+  button :hover {
+    cursor: pointer;
   }
