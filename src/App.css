@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -36,4 +36,66 @@
   100% {
     transform: translateY(0px);
   }
+} */
+
+
+
+.Login {
+  /* background-color: lightgray; */
+  margin-top: 10%;
+  margin-left: 30%;
+  box-shadow: 5px 2px 5px 3px rgb(240, 198, 198);
+}
+
+.Login {
+  background-color: lightblue;
+  width: fit-content;
+  height:fit-content;
+}
+
+.form {
+  padding-top: 20px;
+}
+
+input {
+  margin-bottom: 5px;
+  margin-top: 10px;
+  border-radius: 15px;
+  height: 25px;
+  margin-left: 10%;
+  width: 80%;
+}
+
+button {
+  background-color: rgb(245, 208, 208);
+  border-radius: 5px;
+  margin-left: 40%;
+  
+}
+
+.notvalid {
+  color: red;
+}
+
+.valid {
+  color: green;
+}
+
+.head {
+  margin-left: 25px;
+  color: black;
+}
+
+
+.password {
+  border: 2px solid lightblue;
+}
+
+.username {
+  border: 2px solid lightblue;
+
+}
+
+li {
+  margin-bottom: 5px;
 }
