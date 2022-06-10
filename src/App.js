@@ -58,7 +58,7 @@ function App() {
 
 
    let handleclick=(e)=>{
-      e.preventDefault()
+      // e.preventDefault()
 
       console.log(`Your password is ${password}`)
       console.log(`minimum length   ${minletter}`)
@@ -93,7 +93,7 @@ function App() {
          </div>
          
               <br/>  {
-                valid_password?  <button type='submit'  onClick={handleclick}>Login</button>: ''
+                valid_password?  <button type='submit'  onClick={handleclick}>Login</button>:<small>Login button will be enabled when password is valid</small>
               }
        
         </form>
