@@ -1,5 +1,6 @@
 import React from 'react'
 import Login from './Login'
+import './App.css';
 
 
 import { login, selectUser } from './features/LoginSlice';
@@ -11,9 +12,15 @@ function App() {
   let logincredentials=useSelector(selectUser)
 
   return (
-    <div>
-      <Login/>
-     {logincredentials? <Register/>:''}
+    <div className='app'>
+
+      <div className='header'>
+        <b className=    {logincredentials? 'header_reg':''}  >Register</b> <b className= {logincredentials? '':'header_log'}   >Login</b>
+      </div>
+
+     
+      {/* <Register/> */}
+      {logincredentials ? <Login/>: <Register/>}
 
 
     </div>

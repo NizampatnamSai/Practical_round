@@ -1,12 +1,46 @@
 
 
 
+// import React from 'react'
+// import { useSelector } from 'react-redux'
+// import { selectUser } from './features/LoginSlice'
+// import './App.css';
+
+// function Login({usernames,passwords}) {
+   
+
+//     let logincredentials=useSelector(selectUser)
+
+//     console.log(logincredentials)
+
+//     let handlesubmit=()=>{
+//       if(logincredentials.userName===usernames){
+//         console.log('user name matched!!')
+//     }
+//     }
+
+   
+
+
+//   return (
+//     <div className='register'>
+//         <button onClick={handlesubmit}>Login</button>
+      
+//     </div>
+//   )
+// }
+
+// export default Login
+
+
+
+
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { login, selectUser } from './features/LoginSlice';
-import Register from './Register';
+// import Register from './Register';
 
 
 function Login() {
@@ -71,13 +105,15 @@ function Login() {
    let handleclick=(e)=>{
       e.preventDefault()
 
+      setPassword('')
+      setUsername('' )
+
       dispatch(login({
         userName:username,
         password:password
       }))
     
-      // setUsername('')
-      // setPassword('')
+      
 
 
 
@@ -99,8 +135,8 @@ function Login() {
     <div className="App">
       <div className='Login'>
         <form className='form'>
-        <input   className='username'  type='text' placeholder='Username' required  onChange={e=>setUsername(e.target.value)}/>  <br/>
-        <input  className='password' type='Password' placeholder='password' onChange={e=>setPassword(e.target.value)} required/> 
+        <input   className='username' value={username}  type='text' placeholder='Username' required  onChange={e=>setUsername(e.target.value)}/>  <br/>
+        <input  className='password' value={password} type='Password' placeholder='password' onChange={e=>setPassword(e.target.value)} required/> 
          <br/>
          
            <div    >
@@ -116,9 +152,12 @@ function Login() {
          </div>
          
               <br/>  {
-                valid_password?  <button type='submit'  onClick={handleclick}>Login</button>:<small>Login button will be enabled when password is valid</small>
+                valid_password?  <button type='submit'  onClick={handleclick}>Register</button>:<small>Login button will be enabled when password is valid</small>
                
               }
+
+      {/* {logincredentials ? } */}
+
 
        
         </form>
@@ -129,3 +168,4 @@ function Login() {
 }
 
 export default Login;
+
