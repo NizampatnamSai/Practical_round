@@ -46,13 +46,6 @@ body {
 }
 
 
-/* @media (max-width:500px) {
-  
-  .register {
-    margin-left: 15px;
-  }
- 
-} */
 .Login {
   background-color: lightblue;
   width: fit-content;
@@ -117,5 +110,16 @@ small {
 
 .register {
   margin-top: -30px;
-  /* margin-left: 10%; */
+  
 }
+
+.checkbox {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+  .checkbox b {
+    margin-left: -55px;
+  }

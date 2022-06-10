@@ -3,7 +3,7 @@ import Login from './Login'
 import './App.css';
 
 
-import { login, selectUser } from './features/LoginSlice';
+import {  selectUser } from './features/LoginSlice';
 import Register from './Register';
 import { useSelector } from 'react-redux';
 

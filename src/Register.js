@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { useDispatch, useSelector } from 'react-redux'
-import { login, selectUser } from './features/LoginSlice';
-// import Register from './Register';
+import { useDispatch } from 'react-redux'
+import { login } from './features/LoginSlice';
 
 
 function Register() {
@@ -13,7 +12,6 @@ function Register() {
   let [conformpassword, setOnformPassword]=useState('')
   let [username, setUsername]=useState('')
   const dispatch=useDispatch();
-  let logincredentials=useSelector(selectUser)
 
 
 
@@ -125,7 +123,6 @@ function Register() {
                
               }
 
-      {/* {logincredentials ? } */}
 
 
        
